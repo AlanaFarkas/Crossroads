@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :favorites, only: [:index]
   resources :establishments, only: [:show]
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
-
-  root to: 'home#index'
-  
+  devise_scope :user do
+    # get '/login' => 'sessions#new'
+    # post '/login' => 'sessions#create'
+    get "/login" => 'devise/sessions#new'
+    get '/logout' => 'devise/sessions#destroy'
+  end
 end
