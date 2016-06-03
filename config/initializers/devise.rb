@@ -102,7 +102,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'c1aef64d774df6e88a090deeeb3dbfd397ee0289415958e4607d0357a88a21cbb33feec8dee4db3f18356b32016ac6665f7cae1afbe3e5fbf4e2ecf43c4ced86'
+  config.pepper = 'c1aef64d774df6e88a090deeeb3dbfd397ee0289415958e4607d0357a88a21cbb33feec8dee4db3f18356b32016ac6665f7cae1afbe3e5fbf4e2ecf43c4ced86'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -148,7 +148,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  config.password_length = 6..25
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
