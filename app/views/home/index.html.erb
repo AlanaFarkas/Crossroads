@@ -1,1 +1,14 @@
-this is the home page
+this is the home/search page
+
+<div id="map"></div>
+        <script>
+      function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+          center: {lat: 40.7065684, lng: -74.0110687},
+          zoom: 12
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
