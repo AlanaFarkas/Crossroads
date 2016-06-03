@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
     unless user
       first_name = data["name"].split(" ").shift
       last_name  = data["name"].split(" ").pop
-        user = User.create(first_name: first_name,
+        user = User.create(uid: access_token.uid,
+                           first_name: first_name,
                            last_name: last_name,
                            email: data["email"],
                            password: Devise.friendly_token[0,20]
