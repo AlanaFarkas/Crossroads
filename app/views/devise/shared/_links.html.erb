@@ -5,7 +5,7 @@
 
 <div class='small-6 small centered columns'>
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Create Account ||", new_registration_path(resource_name) %><br />
+  <%= link_to "Create Account", new_registration_path(resource_name) %><br />
 <% end -%>
 </div>
 
