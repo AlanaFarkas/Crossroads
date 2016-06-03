@@ -1,4 +1,4 @@
-* Day One MVP Planning *
+* MVP Planning *
 
 As a user:
 -You can input your address, and up to two other addresses of your friends
@@ -11,34 +11,25 @@ As a user:
 -You can log in through Yelp or Google, or create an account 
 -You can 'favorite' places, tied to your crossroads account
 
-**Stretch**
+Team Workflow:
+-Push every hour
+-Standup every hour
+-Make many feature branches with clear names
+-Commit often with clear, concise commit messages
+-Take breaks, don't burnout!
+
+**Stretch Goals**
 -Utilize google calendar to invite friends to the agreed upon place
 -Worldwide capability!
 -IP Address location finder implementation 
 -TEST TEST TEST
 
-Workflow:
--Push every hour
--Standup every hour
--Make many feature branches with clear names
--Commit often with clear, concise commit messages
+Main color? #9BDBE9
+Google circle marker
+Google info window
+Open info window when you click on marker
+Type of map choice for user
 
-SPIKES:
--Yelp API
--Google API, we don't need everything!
--Heroku
--OAuth
--Gems (Devise? others)
--Foundation
--Continuous integration tool, Travis Testing?
-
-
-Today's plan:
-Routes
-Wireframe
-Google Maps API
-
-Ayaz: Foundation guru -- let's wireframe today
 
 
 
