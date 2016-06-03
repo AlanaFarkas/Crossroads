@@ -11,4 +11,6 @@ Rails.application.routes.draw do
     get "/login" => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
   end
+
+  root to: "home#index"
 end
