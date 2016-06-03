@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160602193926) do
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
+    t.string   "uid"
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
     t.string   "email",                  default: "", null: false
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160602193926) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true, using: :btree
 
   add_foreign_key "addresses", "users"
   add_foreign_key "favorites", "establishments"
