@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
   validates_presence_of :first_name, :last_name, :email
-  validates_uniqueness_of :email
+  validates_uniqueness_of :email, :uid
   validates_format_of :password,  with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)./, message: "must contain at least one capital letter and a digit"
   validates_length_of :password, within: 6..25, too_long: 'cannot be over 25 characters', too_short: 'must be at least 6 characters'
 
@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
     unless user
       first_name = data["name"].split(" ").shift
       last_name  = data["name"].split(" ").pop
-        user = User.create(first_name: first_name,
+        user = User.create(uid: access_token.uid,
+                           first_name: first_name,
                            last_name: last_name,
                            email: data["email"],
                            password: Devise.friendly_token[0,20]
