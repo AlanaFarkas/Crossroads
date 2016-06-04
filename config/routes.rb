@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "/search"  => "search#create"
   get "/search/show"   => "search#show", as: :search_show
   devise_scope :user do
+
     get "/login" => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
   end
