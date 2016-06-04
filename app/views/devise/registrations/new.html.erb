@@ -1,39 +1,45 @@
-<h2>Sign up</h2>
+<div class='container'>
+<h2 id='create_account'>Create your crossroads account</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= devise_error_messages! %>  
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+  <div class="row">
+    <div class="field small-10 small-centered columns"> 
+      <input type="text" name="user[first_name]", placeholder="First Name">  
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="field small-10 small-centered columns"> 
+      <input type="text" name="user[last_name]", placeholder="Last Name">  
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+  <div class="row">
+    <div class="field small-10 small-centered columns"> 
+      <input type="text" name="user[email]", placeholder="Email">  
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="row">
+    <div class="field small-10 small-centered columns">
+      <input type="password" name="user[password]", placeholder="Password">  
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum with a capital letter and digit)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="row">
+    <div class="field small-10 small-centered columns"> 
+      <input type="password" name="user[password_confirmation]" autocomplete="off" , placeholder="Confirm Password">  
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="row">
+    <div class="input-group-button">
+    <input type="submit" class="button small-6 small-centered columns" value="Create Account">
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  </div><br/>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
