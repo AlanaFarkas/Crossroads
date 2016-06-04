@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :favorites, only: [:index]
   resources :establishments, only: [:show]
+  resources :search , only: [:new, :show]
 
   devise_scope :user do
     # get '/login' => 'sessions#new'
