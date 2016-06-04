@@ -17,8 +17,13 @@
  */
 
  .container {
- 	margin-top: 100px;
+ 	margin-top: 155px;
+ 	padding-bottom: 10px;
  }
+
+.other-login {
+	margin-top: 170px;
+}
 
  .inline {
  	display: inline-block;
