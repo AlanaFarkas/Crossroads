@@ -4,11 +4,11 @@ class SearchController < ApplicationController
   end
 
   def create
-    redirect_to search_show_path
+    @api_key = ENV["GOOGLE_MAP_API_KEY"]
+    @address1 = params[:search][:address_1]
+    render :show
   end
 
   def show
-
-    @api_key = ENV["GOOGLE_MAP_API_KEY"]
   end
 end
