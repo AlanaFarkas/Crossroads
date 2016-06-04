@@ -24,3 +24,8 @@
  	display: inline-block;
  	margin: 2px;
  }
+
+ #create_account {
+  	margin-bottom: 20px;
+ 	text-align: center;
+ }
