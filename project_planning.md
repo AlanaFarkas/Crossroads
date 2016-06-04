@@ -30,6 +30,23 @@ Google info window
 Open info window when you click on marker
 Type of map choice for user
 
+OOJS BREAKDOWN
+-User inputs 3 addresses
+-User inputs the type of establishment
+-User inputs the desired radius around which to search for establishments
+-Google plots the 3 addresses
+-Google finds the geographic (or route?) midpoint between 3 addresses
+-Map show page displays a marker at the midpoint
+-Map show page displays a circle around the midpoint representing the radius
+-Inside the circle, Yelp API pulls 5 options (by default, could be top rated) within the radius
+-User can filter results using Yelp API
+-Each establishment has a marker with Yelp information
+-Marker has a link to 'email your friends' with that selection
+
+Favorites
+-A user can select favorite places that are saved to their account
+-A user has a favorites page where favorites are listed 
+
 
 
 
