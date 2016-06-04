@@ -11,40 +11,43 @@
   </head>
 
   <body>
-  <nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">My Site</a></h1>
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="active"><a href="#">Right Button Active</a></li>
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-          <li class="active"><a href="#">Active link in dropdown</a></li>
-        </ul>
+  <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle></button>
+  <div class="title-bar-title">Crossroad</div>
+</div>
+
+<div class="top-bar" id="example-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li>
+          <% if user_signed_in? %>
+          <a href="#"><%= current_user.first_name %></a>
+          <ul class="menu vertical">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Favorite</a></li>
+            <li><%= link_to "Logout", logout_path %></li>
+          </ul>
+            <li><a href="#">New Search</a></li>
+          <% else %>
+            <a href="#">Options</a>
+            <ul class="menu vertical">
+              <li><%= link_to "Login", login_path %></li>
+              <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <li><%= link_to "Create Account", new_registration_path(resource_name) %></li>
+              <% end -%>
+              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <li><%= link_to "Forgot your password?", new_password_path(resource_name) %></li>
+              <% end -%>
+            </ul>
+            <li><a href="#">New Search</a></li>
+          <% end %>
       </li>
     </ul>
+  </div>
 
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><a href="#">Left Nav Button</a></li>
-    </ul>
-  </section>
-</nav>
-  <% if user_signed_in? %>
-    <%= link_to "Logout", logout_path %>
-  <% else %>
-    <%= link_to "Login", login_path %>
-  <% end %>
-
+</div>
     <%= yield %>
 
   </body>

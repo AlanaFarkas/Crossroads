@@ -21,6 +21,7 @@ before_action :authenticate_user!, only:[:create]
   # DELETE /resource/sign_out
   def destroy
     super
+    render "login"
   end
 
   # protected
