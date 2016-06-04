@@ -4,7 +4,7 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-  <div class="small-6 small-centered">
+  <div class="small-8 small-centered">
     <%= link_to image_tag("google.png", border: 0), omniauth_authorize_path(resource_name, provider) %>
   </div>
   <% end -%>
