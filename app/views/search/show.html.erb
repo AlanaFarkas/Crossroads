@@ -7,13 +7,21 @@
   var map;
   var activity;
 
+
   function handleSearchResults(results, status){
     for(var i = 0; i < results.length; i++) {
       var marker = new google.maps.Marker({
         position: results[i].geometry.location,
         map: map,
       });
+      infoWindow = new google.maps.InfoWindow({
+        content: JSON.stringify(results[i].rating)
+      });
+      marker.infoWindow = infoWindow
     }
+    google.maps.event.addListener(marker, "click", function(){
+      this["infoWindow"].open(map, this)
+    });
   }
 
   function performSearch(){
@@ -40,12 +48,13 @@
       map: map
     });
 
+
     activity = new google.maps.places.PlacesService(map);
     google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch)
   }
 
   $(document).ready(function(){
-      navigator.geolocation.getCurrentPosition(initialize);
+    navigator.geolocation.getCurrentPosition(initialize);
   });
 
 </script>
