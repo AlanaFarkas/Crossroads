@@ -9,7 +9,6 @@ before_action :authenticate_user!, only:[:create]
   # POST /resource/sign_in
   def create
     super
-        binding.pry
       @user = User.find_by(email: params[:email])
       if @user
         redirect_to user_path
