@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
   validates_presence_of :first_name, :last_name, :email
-  validates_uniqueness_of :email
+  # validates_uniqueness_of :email
   validates_format_of :password,  with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)./, message: "must contain at least one capital letter and a digit"
   validates_length_of :password, within: 6..25, too_long: 'cannot be over 25 characters', too_short: 'must be at least 6 characters'
 
