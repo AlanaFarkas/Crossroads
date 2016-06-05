@@ -33,12 +33,10 @@
           <% else %>
             <a href="#">Options</a>
             <ul class="menu vertical">
+              <li><%= link_to "Home", root_path %></li>
               <li><%= link_to "Login", login_path %></li>
-             
-                <li><%= link_to "Create Account", new_user_registration_path %></li>
-          
-             
-                <li><%= link_to "Forgot your password?", new_user_password_path %></li>
+              <li><%= link_to "Create Account", new_user_registration_path %></li>
+              <li><%= link_to "Forgot your password?", new_user_password_path %></li>
            
             </ul>
             <li><%= link_to "New Search", search_show_path %></li>

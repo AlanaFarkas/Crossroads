@@ -17,8 +17,14 @@
  */
 
  .container {
- 	margin-top: 155px;
+ 	margin-top: 125px;
  	padding-bottom: 10px;
+ }
+
+ h2 {
+ 	font-size: 30px;
+ 	text-align: center;
+ 	margin-top: 50px;
  }
 
 .other-login {
@@ -52,7 +58,7 @@
 	margin: 0;
 }
 
-.button {
+.map-button {
 	background-color: #e67e22;
 	position: relative;
 	padding: -2px;
