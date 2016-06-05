@@ -3,14 +3,15 @@
 
 <div class="row">
 	<div class="input-group-button">
-		<a href="#"><div class="button small-4 small-centered columns">Login</div></a>
-		<a href="#"><div class="button small-4 small-centered columns">Register</div></a>
+		<%= link_to 'Login', login_path %>
+		<%= link_to 'Register', new_user_registration_path %>
 	</div>
 
 <div class='row'>
-	<div class="input-group-button">
-	  <a href="#"><div class="button small-8 small-centered columns">New Search</div></a>
-	</div>
+  <div class="input-group-button">
+  <%= link_to 'New Search', search_path %>
+</div>
+
 </div>
 
 </div>
