@@ -7,10 +7,31 @@
 <p>Phone: <%= @user.phone_number %></p>
 </div>
 
+<% if @addresses.length > 0 %>
+	<ul class="dropdown menu" data-dropdown-menu>
+  <li>
+    <a href="#">Saved Addresses</a>
+    <ul class="menu">
+      <% @addresses.each do |address| %>
+      	<% if address.address_type == 'Home' %>
+      		<li>Home: <%= address.full_address %></li>
+      	<% elsif address.address_type == 'Work' %>
+      		<li>Work: <%= address.full_address %></li>
+      	<% end %>
+      <% end %>
+
+      <li><a href='#'>Edit Addresses</a>
+    </ul>
+  </li>
+</ul>
+<% else %>
+	<%= link_to "Add Address", new_address_path %>
+<% end %>
+
 
 <!-- IF USER HAS SAVED ADDRESSES -->
 
-<ul class="dropdown menu" data-dropdown-menu>
+<!-- <ul class="dropdown menu" data-dropdown-menu>
   <li>
     <a href="#">Saved Addresses</a>
     <ul class="menu">
@@ -19,7 +40,8 @@
       <li><a href='#'>Edit Addresses</a>
     </ul>
   </li>
-</ul>
+</ul> -->
+
 </div>
 
 <!-- ELSE -->
