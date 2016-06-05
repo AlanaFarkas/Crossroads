@@ -17,14 +17,14 @@ end
 end
 
 50.times do
-   Establishment.create!(name: Faker::Name.first_name,
+   Establishment.create!(name: Faker::Company.name,
     address_1: Faker::Address.street_address,
     address_2: Faker::Address.secondary_address,
     city: Faker::Address.city,
     state: Faker::Address.state,
     zip: Faker::Address.zip,
     phone_number: Faker::PhoneNumber.phone_number,
-    website: Faker::Internet.url)
+    website: Faker::Internet.domain_name)
 end
 
 100.times do

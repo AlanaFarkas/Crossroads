@@ -51,6 +51,17 @@
 	height: 571px;
 }
 
+#favorite {
+	border-top: .75px solid black;
+	padding: 5px;
+	border-color: #e67e22;
+	bord	
+}
+
+li {
+	list-style-type: none;
+}
+
 .button-group {
 	position: relative;
 	width: 100%;

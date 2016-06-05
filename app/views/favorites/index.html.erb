@@ -1,0 +1,20 @@
+<div class="container">
+
+	<h2>Favorite Places</h2>
+
+	<% @favorites.each do |favorite| %>
+
+	<div id='favorite'>
+	<div class='row'>
+	<div class='small-8 columns'><a href='<%=favorite.establishment.website%>'><%= favorite.establishment.name %></a></div>
+	</div>
+	<div class='row'><div class='small-8 columns'>Phone: <%= favorite.establishment.phone_number %>
+	<%= favorite.establishment.address_1 %>, <%= favorite.establishment.address_2 %></div>
+	</div>
+	<div class='row'><div class='small-8 columns'><%= favorite.establishment.city %>, <%= favorite.establishment.state %>  <%= favorite.establishment.zip %></div>
+	</div>
+	</div>
+	<% end %>
+
+
+</div>
