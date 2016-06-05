@@ -57,4 +57,11 @@ describe Address do
       end
     end
   end
+  context "Methods" do
+    describe "#full_address" do
+      it "interpolates the addresses fields into one string" do
+        expect(address.full_address).to eq("test test test 12345")
+      end
+    end
+  end
 end
