@@ -39,3 +39,8 @@
 	width: 100%;
 	margin:; 0 auto;
 }
+
+#map {
+	width: 375px;
+	height: 571px;
+}
