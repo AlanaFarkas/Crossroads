@@ -4,26 +4,27 @@
 
 <script>
   
+
   var map;
   var activity;
 
-
+// Assigns an info window to every marker
   function handleSearchResults(results, status){
     for(var i = 0; i < results.length; i++) {
-      var marker = new google.maps.Marker({
+      var marker1 = new google.maps.Marker({
         position: results[i].geometry.location,
         map: map,
       });
-      infoWindow = new google.maps.InfoWindow({
+      var infoWindow = new google.maps.InfoWindow({
         content: JSON.stringify(results[i].rating)
       });
-      marker.infoWindow = infoWindow
+      google.maps.event.addListener(marker1, 'click', function(){
+        infoWindow.open(map, this)
+      })
     }
-    google.maps.event.addListener(marker, "click", function(){
-      this["infoWindow"].open(map, this)
-    });
   }
 
+// Searches for the specific name within the bounds of the screen
   function performSearch(){
     var request = {
       bounds: map.getBounds(),
@@ -31,7 +32,7 @@
     }
     activity.nearbySearch(request, handleSearchResults);
   }
-
+//Runs all this functions during on initialization
   function initialize(location){
     var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
  
@@ -48,11 +49,11 @@
       map: map
     });
 
-
     activity = new google.maps.places.PlacesService(map);
     google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch)
   }
 
+// Locates current location on load
   $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(initialize);
   });
