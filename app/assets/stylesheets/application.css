@@ -52,9 +52,10 @@
 }
 
 #favorite {
-	border-top: .5px solid black;
+	border-top: .75px solid black;
 	padding: 5px;
-	
+	border-color: #e67e22;
+	bord	
 }
 
 li {
