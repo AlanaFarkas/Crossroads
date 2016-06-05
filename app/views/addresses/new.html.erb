@@ -1,0 +1,21 @@
+<div class='container'>
+<%= form_for @address, url: {action: 'create'} do |f| %>
+<%= f.select(:address_type, ["Home", "Work"]) %>
+<%= f.text_field :address_1, placeholder: 'Address 1' %>
+<%= f.text_field :address_2, placeholder: 'Address 2'  %>
+<%= f.text_field :city, placeholder: 'City'  %>
+<%= f.text_field :state, placeholder: 'State'  %>
+<%= f.text_field :zip, placeholder: 'Zip'  %>
+<%= f.submit "Save Address" %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+</div>

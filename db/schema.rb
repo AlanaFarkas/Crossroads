@@ -17,15 +17,15 @@ ActiveRecord::Schema.define(version: 20160602193926) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "address_1",  null: false
+    t.string   "address_1",    null: false
     t.string   "address_2"
-    t.string   "city",       null: false
-    t.string   "state",      null: false
-    t.string   "zip",        null: false
-    t.string   "type"
+    t.string   "city",         null: false
+    t.string   "state",        null: false
+    t.string   "zip",          null: false
+    t.string   "address_type"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree

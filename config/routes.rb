@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root to: "home#index"
 
+  resources :addresses, except: [:show]
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: [:show, :edit, :update]
   resources :favorites, only: [:index]
