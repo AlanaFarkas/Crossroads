@@ -23,6 +23,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.inet     :current_sign_in_ip
       t.inet     :last_sign_in_ip
 
+      ## Other
+
+      t.string :profile_picture
+
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
