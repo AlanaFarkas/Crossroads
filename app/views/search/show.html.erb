@@ -14,7 +14,7 @@
 </div>
 </div>
 <script>
-  
+
 
   var map;
   var activity;
@@ -51,18 +51,18 @@
 //Runs all this functions during on initialization
   function initialize(location){
 
-    var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
- 
+    var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude); //Geolocates the user using the latitude and longitude of the ip address or cell signal
+
     var mapOptions = {
-      center: currentLocation,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      center: currentLocation, //Sets the center of the screen as the postion of the user
+      zoom: 15, // The higher the number the closer the zoom
+      mapTypeId: google.maps.MapTypeId.ROADMAP //Map type
     };
 
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
     var marker = new google.maps.Marker({
-      position: currentLocation,
+      position: currentLocation, //Drops a pin on where the user currently is
       map: map
     });
 
@@ -71,28 +71,28 @@
     // google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch)
 
 //Directions And Route Creation
-    var directionsService = new google.maps.DirectionsService;
-    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var directionsService = new google.maps.DirectionsService; //Initiates the direction services methods
+    var directionsDisplay = new google.maps.DirectionsRenderer; //Renders the route on the map
 
-    var input = (document.getElementById("address1"));
-    var input2 = (document.getElementById("address2"));
+    var input = (document.getElementById("address1")); //Links the first text area to the input variable
+    var input2 = (document.getElementById("address2")); //Links the second text area to the input variable
 
-    var autoComplete1 = new google.maps.places.Autocomplete(input);
+    var autoComplete1 = new google.maps.places.Autocomplete(input); //Add the autocomplete functionality to the text areas
 
     var autoComplete2 = new google.maps.places.Autocomplete(input2);
 
-    directionsDisplay.setMap(map)
+    directionsDisplay.setMap(map) //Renders the route on the map if there is two points
 
-    function calculateAndDisplayRoute(directionsService, directionsDisplay){
+    function calculateAndDisplayRoute(directionsService, directionsDisplay){ //Calculates the distance on an actual route on the map
       directionsService.route({
-        origin: document.getElementById("address1").value,
-        destination: document.getElementById("address2").value,
+        origin: document.getElementById("address1").value, //Address 1 point
+        destination: document.getElementById("address2").value, // Address 2 Point
         travelMode: google.maps.TravelMode.DRIVING
       }, function(response, status){
-        if (status === google.maps.DirectionsStatus.OK) {
-          directionsDisplay.setDirections(response);
+        if (status === google.maps.DirectionsStatus.OK) { //If there is an actual route
+          directionsDisplay.setDirections(response); // Render the directions and route
         } else {
-          window.alert('Directions request failed due to ' + status)
+          window.alert('Directions request failed due to ' + status) // Otherwise show a failure message
         }
       });
 
@@ -103,9 +103,9 @@
        origins: [document.getElementById("address1").value],
         destinations: [document.getElementById("address2").value],
         travelMode: google.maps.TravelMode.DRIVING
-      }, callback);
+      }, callback); //Calculates the distance on a drivable route
 
-    function callback(response, status) {
+    function callback(response, status) { //Parses the data recieved
       if (status == google.maps.DistanceMatrixStatus.OK) {
         var origins = response.originAddresses;
         var destinations = response.destinationAddresses;
@@ -116,24 +116,24 @@
             var element = results[j];
             var distance = element.distance.text; //distance between address1 and address2
             var duration = element.duration.text; //duration of time between address1 and address2
-            var from = origins[i];
-            var to = destinations[j];
+            var from = origins[i]; //In case of multiple points on the map
+            var to = destinations[j]; //In case of multiple points on the map
           }
         }
       }
     }
   }
-    var onChangeHandler = function() {
+    var onChangeHandler = function() { //Handles the changes of the address1 and address2 fields
       calculateAndDisplayRoute(directionsService, directionsDisplay);
         };
 
-    document.getElementById('address_submit').addEventListener('click', onChangeHandler);
+    document.getElementById('address_submit').addEventListener('click', onChangeHandler); //Sets button to be able to fire the function
 
   }
 
 // Locates current location on load
   $(document).ready(function(){
-    navigator.geolocation.getCurrentPosition(initialize);
+    navigator.geolocation.getCurrentPosition(initialize); //Gets Current Position on the loading of the map
   });
 
 </script>
