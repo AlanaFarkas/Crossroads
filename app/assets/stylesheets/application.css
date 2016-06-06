@@ -21,10 +21,9 @@
 	margin-top: 6%;
 }
 
-
-
-
-
+.row {
+	margin: 0;
+}
  .container {
  	margin-top: 105px;
  	padding-bottom: 10px;
@@ -73,7 +72,7 @@
 
 #map {
 	width: 100%;
-	height: 85%;
+	height: 80%;
 }
 
 .address-menu {
@@ -103,9 +102,8 @@ li {
 	background-color: #e67e22;
 	position: relative;
 	padding: -2px;
-	margin-left: 6px;
 	height: 45px;
-	width: 187px;
+	width: 49.80%;
 }
 
 .title-bar {
