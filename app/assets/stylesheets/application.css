@@ -34,8 +34,9 @@
  	margin-left: 135px;
  }
 
- .address-list {
- 	
+ .home-button {
+ 	font-color: #fff;
+ 	margin-left: 63px;
  }
 
  h2 {
@@ -60,7 +61,6 @@
 
 .user-link {
 	width: 100%;
-	margin:; 0 auto;
 }
 
 #map {
@@ -72,7 +72,6 @@
 	border-top: .75px solid black;
 	padding: 5px;
 	border-color: #e67e22;
-	bord	
 }
 
 li {
@@ -91,7 +90,7 @@ li {
 	position: relative;
 	padding: -2px;
 	margin-left: 6px;
-	height: 53px;
+	height: 45px;
 	width: 187px;
 }
 
@@ -102,6 +101,11 @@ line-height: 45px;
 position: relative;
 background: #e67e22;
 margin-bottom: 0; 
+}
+
+.button {
+	color: #000;
+	background-color: #e67e22;
 }
 
 .picture {

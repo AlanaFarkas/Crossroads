@@ -1,18 +1,27 @@
 <div class='container'>
 	<h1 id='home-title'>Crossroads</h1>
 
+	<% if !signed_in? %>
 	<div class="row">
-		<div class="button small-10 small-centered columns ">
+		<div class="home-button button small-8 small-centered columns">
 			<%= link_to 'Login', login_path %>
 		</div>
-
 	</div>
+	<% end %>
 
 	<div class='row'>
-	  <div class="input-group-button">
-	  <%= link_to 'New Search', search_path %>
+	  <div class="home-button button small-8 small-centered columns">
+	  <%= link_to 'New Search', search_show_path %>
 	  </div>
 	</div>
+
+	<% if !signed_in? %>
+	<div class='row'>
+	  <div class="home-button button small-8 small-centered columns">
+    <%= link_to "Create an Account", new_user_registration_path %>
+	  </div>
+	</div>
+	<% end %>
 
 </div>
 
