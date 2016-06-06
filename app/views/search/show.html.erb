@@ -1,13 +1,21 @@
-<input id="address1" class="searchbox">
-<input id="address2" class="searchbox">
-<input id="radius" class="searchbox" placeholder="Radius">
-<input id="address_submit" type="button" value="Get Route">
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places" async defer></script>
+
+<div class="active address-menu">
+  <div class="row">
+    <input id="address1" class="small-10 small-centered coulmns searchbox" placeholder="Your Address">
+  </div>
+  <div class="row">
+      <input id="address2" class="small-10 small-centered coulmns searchbox" placeholder="Second Person's Address">
+  </div>
+  <input id="radius" class="searchbox" placeholder="Radius">
+  <input id="address_submit" type="button" value="Get Route">
+</div>
 
 <div id="map"></div>
 
 <div class="row">
 <div class="small-12 columns button-group">
-  <a class="button map-button">Filter</a>
+  <a class="search button map-button">Search</a>
   <a class="button map-button">List</a>
 </div>
 </div>
@@ -159,6 +167,11 @@
 // Locates current location on load================================================
   $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(initialize); //Gets Current Position on the loading of the map
-  });
+
+    $('.address-menu').hide();
+    $('.search').on('click', function(event){
+        $('.address-menu').slideToggle(500);
+      })
+    });
 
 </script>
