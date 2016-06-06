@@ -94,13 +94,23 @@ li {
 	width: 187px;
 }
 
-.top-bar {
+.title-bar {
 /*overflow: hidden;*/
-/*height: 45px;*/
+height: 45px;
 line-height: 45px;
 position: relative;
 background: #e67e22;
 margin-bottom: 0; 
+}
+
+.menu-icon {
+	margin-top: -15px;
+	color: #000;
+}
+
+.title-bar-title {
+	margin-top: -8px;
+	float: right;
 }
 
 .button {
