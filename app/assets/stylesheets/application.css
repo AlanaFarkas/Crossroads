@@ -65,7 +65,12 @@
 
 #map {
 	width: 375px;
-	height: 571px;
+	height: 577px;
+}
+
+.address-menu {
+	position: absolute;
+	bottom: 19px;
 }
 
 #favorite {
@@ -120,4 +125,9 @@ margin-bottom: 0;
 
 .picture {
 	margin-left: 100px;
+}
+
+.searchbox {
+	height: 35px;
+	width: 380px;
 }
