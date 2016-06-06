@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capybara'
   gem 'jasmine-rails'
   gem 'brakeman'
+  gem 'factory_girl'
 end
 
 group :development do
