@@ -1,20 +1,25 @@
 <div class="container">
 
-    <div class="small-4 columns">
-    <img src=<%= @picture %>>
+  <div class="row">
+    <div class="medium-4 medium-centered columns">
+    <% if @user.profile_picture != nil %>
+      <img class="picture" src=<%= @user.profile_picture %> height='150' width ='150'>
+    <% else %>
+      <img class="picture" src="http://i2.mirror.co.uk/incoming/article2253395.ece/alternates/s2197/Silhouette.png" height='150' width='150'>
+    <% end %>
     </div>
+  </div>
 
 <div class="row">
 <h2><%= @user.first_name %>
 <%= @user.last_name %></h2>
-<p>Email: <%= @user.email %></p>
-<p>Phone: <%= @user.phone_number %></p>
+<p class="email">Email: <%= @user.email %></p>
 </div>
 
 <% if @addresses.length > 0 %>
 	<ul class="dropdown menu" data-dropdown-menu>
   <li>
-    <a href="#">Saved Addresses</a>
+    <a class="address" href="#">Saved Addresses</a>
     <ul class="menu">
       <% @addresses.each do |address| %>
       	<% if address.address_type == 'Home' %>
@@ -28,9 +33,9 @@
     </ul>
   </li>
 </ul>
-<% else %>
-	<%= link_to "Add Address", new_address_path %>
-<% end %>
+  <% else %>
+  	<%= link_to "Add Address", new_address_path, class: "address2" %>
+  <% end %>
 </div>
 
 

@@ -30,8 +30,5 @@ class User < ActiveRecord::Base
     user
   end
 
-  def profile_picture
-    request.env["omniauth.auth"]["info"]["image"]
-  end
 
 end
