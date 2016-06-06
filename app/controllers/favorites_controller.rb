@@ -1,7 +1,8 @@
 class FavoritesController < ApplicationController
 
   def index
-  	@favorites = Favorite.all
+  	@user = current_user
+  	@favorites = @user.favorites
   end
 
   def show
@@ -9,7 +10,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-      @favorite = Favorite.find_by(id: params[:id])
+      @favorite = Favorite.find(params[:id])
       @favorite.destroy
       redirect_to favorites_path
   end

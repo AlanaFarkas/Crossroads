@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :addresses
   has_many :favorites
-  has_many :favorited_establishments, through: :favorites, source: :establishment
+
 
   def self.from_omniauth(access_token)
     data = access_token.info
