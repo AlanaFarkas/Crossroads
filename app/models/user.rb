@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
   validates_length_of :password, within: 6..25, too_long: 'cannot be over 25 characters', too_short: 'must be at least 6 characters'
 
   has_many :addresses
-  has_many :favorites
-  has_many :favorited_establishments, through: :favorites, source: :establishment
+  has_many :favorite
 
   def self.from_omniauth(access_token)
     data = access_token.info
