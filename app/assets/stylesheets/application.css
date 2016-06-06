@@ -16,9 +16,22 @@
 
  */
 
+
  .container {
  	margin-top: 105px;
  	padding-bottom: 10px;
+ }
+
+ .email {
+ 	text-align: center;
+ }
+
+ .address {
+ 	margin-left: 100px;
+ }
+
+ .address2 {
+ 	margin-left: 135px;
  }
 
  h2 {
@@ -84,4 +97,9 @@ li {
 line-height: 45px;
 position: relative;
 background: #e67e22;
-margin-bottom: 0; }
+margin-bottom: 0; 
+}
+
+.picture {
+	margin-left: 100px;
+}
