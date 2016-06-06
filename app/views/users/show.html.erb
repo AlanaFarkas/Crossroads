@@ -17,22 +17,36 @@
 </div>
 
 <% if @addresses.length > 0 %>
-	<ul class="dropdown menu" data-dropdown-menu>
+	<!-- <ul class="dropdown menu" data-dr/opdown-menu> -->
   <li>
-    <a class="address" href="#">Saved Addresses</a>
     <ul class="menu">
+    <div class="row">
+      <p class="small-4 small-centered columns">Home</p>
       <% @addresses.each do |address| %>
-      	<% if address.address_type == 'Home' %>
-      		<li>Home: <%= address.full_address %></li>
-      	<% elsif address.address_type == 'Work' %>
-      		<li>Work: <%= address.full_address %></li>
-      	<% end %>
+        <% if address.address_type == 'Home' %>
+        <ul>
+      		<li class="small-12 columns"><%= address.full_address %></li>
+        </ul>
+        <% end %>
       <% end %>
+      </div>
+      <br>
+      <div class="row">
+      <p class="small-4 small-centered columns">Work</p>
+      <% @addresses.each do |address| %>
+        <% if address.address_type == 'Work' %>        
+        <ul>
+          <li class="small-12 columns"><%= address.full_address %></li>
+        </ul>
+        <% end %>
+      <% end %>
+      </div>
+      <br>
 
       <li><a href='#'>Edit Addresses</a>
     </ul>
   </li>
-</ul>
+<!-- </ul> -->
   <% else %>
   	<%= link_to "Add Address", new_address_path, class: "address2" %>
   <% end %>
