@@ -11,6 +11,13 @@
   <input id="address_submit" type="button" value="Get Route">
 </div>
 
+<input id="address1" class="searchbox">
+<input id="address2" class="searchbox">
+<input id="radius" class="searchbox" placeholder="Radius">
+<input id="activity" class="searchbox" placeholder="Activity">
+<input id="address_submit" type="button" value="Get Route">
+
+
 <div id="map"></div>
 
 <div class="row">
@@ -25,6 +32,8 @@
   var activity;
   var distance;
   var duration;
+  var radius;
+  var midpoint;
 
 // Assigns an info window to every marker==========================================
 
@@ -43,15 +52,7 @@
     }
   }
 
-// Searches for the specific name within the bounds of the screen==================
 
-  function performSearch(){
-    var request = {
-      bounds: map.getBounds(),
-      name: "Bar"
-    }
-    activity.nearbySearch(request, handleSearchResults);
-  }
 
 //Runs all this functions during on initialization=================================
   
@@ -74,9 +75,7 @@
     // });
 
 
-//***this is for the search of activity. Uncomment to have search markers show on map***
-    // activity = new google.maps.places.PlacesService(map);
-    // google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch)
+
 
 //Directions And Route Creation====================================================
     
@@ -94,22 +93,20 @@
 
     function calculateAndDisplayRoute(directionsService, directionsDisplay){ //Calculates the distance on an actual route on the map
       directionsService.route({
-        origin: document.getElementById("address1").value, //Address 1 point
-        destination: document.getElementById("address2").value, // Address 2 Point
+        origin: input.value, //Address 1 point
+        destination: input2.value, // Address 2 Point
         travelMode: google.maps.TravelMode.DRIVING
       }, function(response, status){
         if (status === google.maps.DirectionsStatus.OK) { //If there is an actual route
           var bounds = new google.maps.LatLngBounds();
-          startLocation = new Object();
-          endLocation = new Object();
           directionsDisplay.setDirections(response); // Render the directions and route
           var route = response.routes[0];
-          var radius = parseInt(document.getElementById("radius").value)
+          radius = parseInt(document.getElementById("radius").value)
           var path = response.routes[0].overview_path;
           var middleOfArray = path.length/2;
           var lat = path[middleOfArray].lat();
           var lng = path[middleOfArray].lng(); 
-          var midpoint = {lat: lat, lng: lng};
+          midpoint = {lat: lat, lng: lng};
 
           var midpointMarker = new google.maps.Marker({
             position: midpoint,
@@ -126,9 +123,23 @@
             center: midpoint,
             radius: radius
           });
-        }
-      });
+          // Searches for the specific name within the bounds of the screen==================
 
+  function performSearch(){
+    var request = {
+      radius: radius/2,
+      location: midpoint,
+      name: (document.getElementById("activity").value)
+    }
+    activity.nearbySearch(request, handleSearchResults);
+  }
+        //***this is for the search of activity. Uncomment to have search markers show on map***
+    activity = new google.maps.places.PlacesService(map);
+    google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch)
+        }
+
+      });
+      
 //calc distance within route
     // var service = new google.maps.DistanceMatrixService();
     // service.getDistanceMatrix(
