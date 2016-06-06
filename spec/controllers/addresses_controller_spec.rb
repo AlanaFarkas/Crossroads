@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe AddressesController, type: :controller do
+describe AddressesController  do
 
 end
