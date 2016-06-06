@@ -1,6 +1,3 @@
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places" async defer></script>
-
-
 <input id="address1" class="searchbox">
 <input id="address2" class="searchbox">
 <input id="address_submit" type="button" value="Get Route">
@@ -15,10 +12,10 @@
 </div>
 <script>
 
-
   var map;
   var activity;
-
+  var distance;
+  var duration;
 
 // Assigns an info window to every marker==========================================
 
@@ -61,10 +58,12 @@
 
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    var marker = new google.maps.Marker({
-      position: currentLocation, //Drops a pin on where the user currently is
-      map: map
-    });
+//this is the current postion based off your ip address/gps location
+    // var marker = new google.maps.Marker({
+    //   position: currentLocation, //Drops a pin on where the user currently is
+    //   map: map
+    // });
+
 
 //***this is for the search of activity. Uncomment to have search markers show on map***
     // activity = new google.maps.places.PlacesService(map);
@@ -91,39 +90,53 @@
         travelMode: google.maps.TravelMode.DRIVING
       }, function(response, status){
         if (status === google.maps.DirectionsStatus.OK) { //If there is an actual route
+          var bounds = new google.maps.LatLngBounds();
+          startLocation = new Object();
+          endLocation = new Object();
           directionsDisplay.setDirections(response); // Render the directions and route
-        } else {
-          window.alert('Directions request failed due to ' + status) // Otherwise show a failure message
-        }
-      });
+          var route = response.routes[0];
+
+          var path = response.routes[0].overview_path;
+          var middleOfArray = path.length/2;
+          var lat = path[middleOfArray].lat();
+          var lng = path[middleOfArray].lng(); 
+          var midpoint = {lat: lat, lng: lng};
+
+          var midpointMarker = new google.maps.Marker({
+            position: midpoint,
+            map: map,
+          });
+      }
+    });
 
 //calc distance within route
-    var service = new google.maps.DistanceMatrixService();
-    service.getDistanceMatrix(
-      {
-       origins: [document.getElementById("address1").value],
-        destinations: [document.getElementById("address2").value],
-        travelMode: google.maps.TravelMode.DRIVING
-      }, callback); //Calculates the distance on a drivable route
+    // var service = new google.maps.DistanceMatrixService();
+    // service.getDistanceMatrix(
+    //   {
+    //    origins: [document.getElementById("address1").value],
+    //     destinations: [document.getElementById("address2").value],
+    //     travelMode: google.maps.TravelMode.DRIVING
+    //   }, callback); //Calculates the distance on a drivable route
 
-    function callback(response, status) { //Parses the data recieved
-      if (status == google.maps.DistanceMatrixStatus.OK) {
-        var origins = response.originAddresses;
-        var destinations = response.destinationAddresses;
+    // function callback(response, status) { //Parses the data recieved
+    //   if (status == google.maps.DistanceMatrixStatus.OK) {
+    //     var origins = response.originAddresses;
+    //     var destinations = response.destinationAddresses;
 
-        for (var i = 0; i < origins.length; i++) {
-          var results = response.rows[i].elements;
-          for (var j = 0; j < results.length; j++) {
-            var element = results[j];
-            var distance = element.distance.text; //distance between address1 and address2
-            var duration = element.duration.text; //duration of time between address1 and address2
-            var from = origins[i]; //In case of multiple points on the map
-            var to = destinations[j]; //In case of multiple points on the map
-          }
-        }
-      }
-    }
+    //     for (var i = 0; i < origins.length; i++) {
+    //       var results = response.rows[i].elements;
+    //       for (var j = 0; j < results.length; j++) {
+    //         var element = results[j];
+    //         distance = element.distance.text; //distance between address1 and address2
+    //         duration = element.duration.text; //duration of time between address1 and address2
+    //         var from = origins[i]; //In case of multiple points on the map
+    //         var to = destinations[j]; //In case of multiple points on the map
+    //       }
+    //     }
+    //   }
+    // }
   }
+
     var onChangeHandler = function() { //Handles the changes of the address1 and address2 fields
       calculateAndDisplayRoute(directionsService, directionsDisplay);
         };
@@ -137,5 +150,3 @@
   });
 
 </script>
-
-
