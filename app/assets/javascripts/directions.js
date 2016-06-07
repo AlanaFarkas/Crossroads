@@ -22,7 +22,7 @@
         position: results[i].geometry.location,
         map: map,
       });
-      contentString = '<a href="#">' + results[i].name + '</a>' +
+      contentString = '<p><a href="#">' + results[i].name + '</a></p>' +
                       '<p>' + results[i].vicinity+ '</p>' +
                       '<p>' + results[i].rating + '</p>'
       placesList.push(contentString)
