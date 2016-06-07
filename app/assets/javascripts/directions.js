@@ -1,3 +1,4 @@
+
   var map;
   var activity;
   var distance;
@@ -11,11 +12,7 @@
     var list = document.getElementById("list-view"); 
     for(var i = 0; i < placesList.length; i++) {
       eachPlace = '<p class="list-item">' + placesList[i] + '</p>' 
-      $('#list-view').hide();
-      $('#list-view').append(eachPlace);
-      $('.list').on('click', function(){
-      $('#list-view').toggle();
-      })
+      $('#list-view').append(eachPlace);      
     }
   }
 // Assigns an info window to every marker==========================================
@@ -85,7 +82,7 @@
           var route = response.routes[0];
           radius = parseInt(document.getElementById("radius").value)
           var path = response.routes[0].overview_path;
-          var middleOfArray = Math.floor(path.length/2);
+          var middleOfArray = path.length/2;
           var lat = path[middleOfArray].lat();
           var lng = path[middleOfArray].lng();
           midpoint = {lat: lat, lng: lng};
@@ -162,6 +159,11 @@
 // Locates current location on load================================================
   $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(initialize); //Gets Current Position on the loading of the map
+    $('#list-view').hide();
+    $('.list').on('click', function(){
+      $('#list-view').slideToggle(500);
+    })
+
     $('.address-menu').hide();
     $('.search').on('click', function(event){
         $('.address-menu').slideToggle(500);
