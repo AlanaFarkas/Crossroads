@@ -162,7 +162,7 @@
     $('#list-view').hide();
     $('.list').on('click', function(){
       $('#list-view').slideToggle(500);
-      // $('#map').hide();
+      $('#map').slideToggle(500);
     })
 
     $('.address-menu').hide();
