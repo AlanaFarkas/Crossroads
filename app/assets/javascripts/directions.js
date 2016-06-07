@@ -85,7 +85,7 @@
           var route = response.routes[0];
           radius = parseInt(document.getElementById("radius").value)
           var path = response.routes[0].overview_path;
-          var middleOfArray = path.length/2;
+          var middleOfArray = Math.floor(path.length/2);
           var lat = path[middleOfArray].lat();
           var lng = path[middleOfArray].lng();
           midpoint = {lat: lat, lng: lng};
