@@ -1,20 +1,24 @@
 <div class="active address-menu">
   <div class="row">
-    <input id="address1" class="small-10 small-centered coulmns searchbox" placeholder="Your Address">
+    <input id="address1" class="small-10 small-centered coulmns searchbox" placeholder="First Address">
   </div>
   <div class="row">
-      <input id="address2" class="small-10 small-centered coulmns searchbox" placeholder="Second Person's Address">
+      <input id="address2" class="small-10 small-centered coulmns searchbox" placeholder="Second Address">
   </div>
-  <input id="activity" class="searchbox" placeholder="Activity">
+  <input id="activity" class="searchbox" placeholder="What are you looking for?">
   <select id="radius">
-    <option value="402.336" class="checkbox searchbox active">.25 miles</options>
-    <option value="804.672" class="checkbox searchbox active">.5 miles</options>
-    <option value="1609.34" class="checkbox searchbox active">1 miles</options>
+    <option value="402.336" class="checkbox searchbox active">Within .25 miles</options>
+    <option value="804.672" class="checkbox searchbox active">Within .5 miles</options>
+    <option value="1609.34" class="checkbox searchbox active">Within 1 mile</options>
+    <option value="8046.72" class="checkbox searchbox active">Within 5 miles</options>
+    <option value="16093.4" class="checkbox searchbox active">Within 10 miles</options>
+
+
   </select>
   <select id="mode">
     <option value="DRIVING" class="checkbox searchbox active">Driving</options>
     <option value="WALKING" class="checkbox searchbox active">Walking</options>
-    <option value="TRANSIT" class="checkbox searchbox active">Public Trans</options>
+    <option value="TRANSIT" class="checkbox searchbox active">Public Transportation</options>
   </select>
   <input id="address_submit" class="button small-12 columns" type="button" value="Get Route">
 </div>
