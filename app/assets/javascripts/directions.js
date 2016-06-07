@@ -90,9 +90,12 @@
           var lng = path[middleOfArray].lng();
           midpoint = {lat: lat, lng: lng};
 
+          var icon = "<%= asset_path('compass-marker.png') %>"
+
           var midpointMarker = new google.maps.Marker({
             position: midpoint,
             map: map,
+            icon: icon
           });
 
           var radialBounds = new google.maps.Circle({
