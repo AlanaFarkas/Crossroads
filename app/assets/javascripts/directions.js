@@ -22,7 +22,7 @@
         position: results[i].geometry.location,
         map: map,
       });
-      contentString = '<p><a href="#">' + results[i].name + '</a></p>' +
+      contentString = '<p><a class="place-link" href="www.google.com">' + results[i].name + '</a></p>' +
                       '<p>' + results[i].vicinity+ '</p>' +
                       '<p>' + results[i].rating + '</p>'
       placesList.push(contentString)
@@ -82,17 +82,14 @@
           var route = response.routes[0];
           radius = parseInt(document.getElementById("radius").value)
           var path = response.routes[0].overview_path;
-          var middleOfArray = path.length/2;
+          var middleOfArray = Math.floor(path.length/2);
           var lat = path[middleOfArray].lat();
           var lng = path[middleOfArray].lng();
           midpoint = {lat: lat, lng: lng};
 
-          var icon = "<%= asset_path('compass-marker.png') %>"
-
           var midpointMarker = new google.maps.Marker({
             position: midpoint,
-            map: map,
-            icon: icon
+            map: map
           });
 
           var radialBounds = new google.maps.Circle({
