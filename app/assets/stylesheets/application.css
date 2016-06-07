@@ -108,6 +108,12 @@ body {
 	position: relative;
 	z-index: 1;
 }
+
+.list-item {
+	border-top: .75px solid black;
+	padding: 5px;
+	border-color: #12A643;
+}
 .address-menu {
 	z-index: 1;
 	position: absolute;
@@ -117,7 +123,7 @@ body {
 #favorite {
 	border-top: .75px solid black;
 	padding: 5px;
-	border-color: #e67e22;
+	border-color: #12A643;
 }
 
 li {
