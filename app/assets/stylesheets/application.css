@@ -21,6 +21,20 @@
 	margin-top: 6%;
 }
 
+.cover {
+	z-index: -1;
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/cover.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: right;
+  /*height: 31.25em;*/
+}
+
+.logo {
+	margin-top: -100px;
+	margin-bottom: -20px;
+}
+
 .row {
 	margin: 0;
 }
@@ -111,7 +125,7 @@ li {
 height: 45px;
 line-height: 45px;
 position: relative;
-background: #e67e22;
+background: #12a643;
 margin-bottom: 0; 
 }
 
@@ -127,7 +141,7 @@ margin-bottom: 0;
 
 .button {
 	color: #000;
-	background-color: #e67e22;
+	background-color: #12a643;
 }
 
 .picture {
