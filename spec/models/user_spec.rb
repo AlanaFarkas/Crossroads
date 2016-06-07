@@ -103,18 +103,5 @@ describe User do
         expect(user.favorites).to eq([])
       end
     end
-    describe "#favorites#establishment" do
-      it "returns a favorite establishment if it has one" do
-        user.favorited_establishments << establishment
-        expect(user.favorited_establishments).to eq([establishment])
-      end
-      it "returns an empty array if it doesn't have one" do
-        expect(user.favorited_establishments).to eq([])
-      end
-    end
   end
-
-  # context "methods" do
-
-  # end
 end
