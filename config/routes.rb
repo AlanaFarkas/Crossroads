@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   resources :favorites, only: [:index, :destroy]
   resources :establishments, only: [:show]
 
-  get "/search"   => "search#new", as: :search
-  post "/search"  => "search#create"
   get "/search/show"   => "search#show", as: :search_show
   # get '/users/favorites' => 'users#favorites'
 
