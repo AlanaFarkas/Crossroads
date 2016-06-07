@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :addresses, except: [:index, :show]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show]
   resources :favorites, only: [:index, :destroy]
   resources :establishments, only: [:show]
 
