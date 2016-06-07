@@ -5,21 +5,30 @@
   var radius;
   var midpoint;
   var transitType;
+  var placesList = [];
 
+  function populateListView(placesList) {
+    var list = document.getElementById("list-view"); 
+    for(var i = 0; i < placesList.length; i++) {
+      eachPlace = '<p class="list-item">' + placesList[i] + '</p>' 
+      $('#list-view').append(eachPlace);   
+      // list.innerHTML = list.append(eachPlace);
+    }
+  }
 // Assigns an info window to every marker==========================================
   function handleSearchResults(results, status){
-    var markers = []
     for(var i = 0; i < results.length; i++) {
       var marker = new google.maps.Marker({
         position: results[i].geometry.location,
         map: map,
       });
-      markers.push(marker)
       contentString = '<p><a href="#">' + results[i].name + '</a></p>' +
                       '<p>' + results[i].vicinity+ '</p>' +
                       '<p>' + results[i].rating + '</p>'
+      placesList.push(contentString)
       addInfoWindowListener(marker, contentString);
     }
+    populateListView(placesList);
   }
 
   function addInfoWindowListener(marker, contentString) {
@@ -45,6 +54,8 @@
     //   position: currentLocation, //Drops a pin on where the user currently is
     //   map: map
     // });
+
+
 
 //Directions And Route Creation====================================================
     var directionsService = new google.maps.DirectionsService;
