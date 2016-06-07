@@ -5,8 +5,17 @@
   <div class="row">
       <input id="address2" class="small-10 small-centered coulmns searchbox" placeholder="Second Person's Address">
   </div>
-<input id="activity" class="searchbox" placeholder="Activity">
-  <input id="radius" class="searchbox" placeholder="Radius">
+  <input id="activity" class="searchbox" placeholder="Activity">
+  <select id="radius">
+    <option value="402.336" class="checkbox searchbox active">.25 miles</options>
+    <option value="804.672" class="checkbox searchbox active">.5 miles</options>
+    <option value="1609.34" class="checkbox searchbox active">1 miles</options>
+  </select>
+  <select id="mode">
+    <option value="DRIVING" class="checkbox searchbox active">Driving</options>
+    <option value="WALKING" class="checkbox searchbox active">Walking</options>
+    <option value="TRANSIT" class="checkbox searchbox active">Public Trans</options>
+  </select>
   <input id="address_submit" class="button small-12 columns" type="button" value="Get Route">
 </div>
 
@@ -14,10 +23,10 @@
 <div id="map"></div>
 
 <div class="row">
-<div class="small-12 columns button-group">
-  <a class="search button map-button">Search</a>
-  <a class="button map-button">List</a>
-</div>
+  <div class="small-12 columns button-group">
+    <a class="search button map-button">Search</a>
+    <a class="button map-button">List</a>
+  </div>
 </div>
 <script>
 
@@ -27,10 +36,10 @@
   var duration;
   var radius;
   var midpoint;
+  var transitType;
 
 // Assigns an info window to every marker==========================================
   function handleSearchResults(results, status){
-
     var markers = []
     for(var i = 0; i < results.length; i++) {
       var marker = new google.maps.Marker({
@@ -38,42 +47,25 @@
         map: map,
       });
       markers.push(marker)
-      contentString = '<p><a href=http://www.'+ results[i].name +'.com>' + results[i].name + '</a></p>' +
+      contentString = '<p><a href="#">' + results[i].name + '</a></p>' +
                       '<p>' + results[i].vicinity+ '</p>' +
                       '<p>' + results[i].rating + '</p>'
-      
       var infoWindow = new google.maps.InfoWindow({
         content: contentString
       });
       google.maps.event.addListener(marker, 'click', (function(marker, i){
         infoWindow.open(map, marker);
-
       })(marker));
     }
   }
-
-          // Allow each marker to have an info window    
-        // google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        //     return function() {
-        //         infoWindow.setContent(infoWindowContent[i][0]);
-        //         infoWindow.open(map, marker);
-        //     }
-        // })(marker, i));
-
-
-
 //Runs all this functions during on initialization=================================
-  
   function initialize(location){
-
     var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude); //Geolocates the user using the latitude and longitude of the ip address or cell signal
-
     var mapOptions = {
       center: currentLocation, //Sets the center of the screen as the postion of the user
       zoom: 15, // The higher the number the closer the zoom
       mapTypeId: google.maps.MapTypeId.ROADMAP //Map type
     };
-
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
 //this is the current postion based off your ip address/gps location
@@ -82,14 +74,9 @@
     //   map: map
     // });
 
-
-
-
 //Directions And Route Creation====================================================
-    
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
-
     var input = (document.getElementById("address1")); //Links the first text area to the input variable
     var input2 = (document.getElementById("address2")); //Links the second text area to the input variable
 
@@ -100,10 +87,11 @@
     directionsDisplay.setMap(map) //Renders the route on the map if there is two points
 
     function calculateAndDisplayRoute(directionsService, directionsDisplay){ //Calculates the distance on an actual route on the map
+      var selectedMode = document.getElementById('mode').value;
       directionsService.route({
         origin: input.value, //Address 1 point
         destination: input2.value, // Address 2 Point
-        travelMode: google.maps.TravelMode.DRIVING
+        travelMode: google.maps.TravelMode[selectedMode]
       }, function(response, status){
         if (status === google.maps.DirectionsStatus.OK) { //If there is an actual route
           var bounds = new google.maps.LatLngBounds();
@@ -113,7 +101,7 @@
           var path = response.routes[0].overview_path;
           var middleOfArray = path.length/2;
           var lat = path[middleOfArray].lat();
-          var lng = path[middleOfArray].lng(); 
+          var lng = path[middleOfArray].lng();
           midpoint = {lat: lat, lng: lng};
 
           var midpointMarker = new google.maps.Marker({
@@ -147,7 +135,7 @@
         }
 
       });
-      
+
 //calc distance within route
     // var service = new google.maps.DistanceMatrixService();
     // service.getDistanceMatrix(
@@ -188,9 +176,16 @@
     navigator.geolocation.getCurrentPosition(initialize); //Gets Current Position on the loading of the map
 
     $('.address-menu').hide();
+
     $('.search').on('click', function(event){
         $('.address-menu').slideToggle(500);
       })
+
+    $(".checkbox").on("click", function(){
+      $(".checkbox").removeClass("active");
+      $(this).addClass("active");
+      transitType = $(this).value
     });
+  });
 
 </script>
