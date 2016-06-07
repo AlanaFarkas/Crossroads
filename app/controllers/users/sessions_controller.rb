@@ -9,13 +9,12 @@ before_action :authenticate_user!, only:[:create]
   # POST /resource/sign_in
   def create
     super
-      @user = User.find_by(email: params[:email])
-      if @user
-        redirect_to user_path
-      else
-        render "login"
-      end
-
+    @user = User.find_by(email: params[:email])
+    if @user
+      redirect_to user_path
+    else
+      render "login"
+    end
   end
 
   # DELETE /resource/sign_out
