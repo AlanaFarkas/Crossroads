@@ -158,7 +158,7 @@
     navigator.geolocation.getCurrentPosition(initialize); //Gets Current Position on the loading of the map
     $('#list-view').hide();
     $('.list').on('click', function(){
-      $('#list-view').toggle();
+      $('#list-view').slideToggle(500);
     })
 
     $('.address-menu').hide();
