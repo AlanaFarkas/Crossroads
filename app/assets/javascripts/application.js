@@ -18,3 +18,9 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+	$('.button').on('click', function(event){
+		$(this).css('background-color', '#12a643')
+	});
+});

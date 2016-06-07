@@ -1,26 +1,36 @@
 <div class="active address-menu">
+
   <div class="row">
     <input id="address1" class="small-10 small-centered coulmns searchbox" placeholder="First Address">
   </div>
+
   <div class="row">
       <input id="address2" class="small-10 small-centered coulmns searchbox" placeholder="Second Address">
   </div>
-  <input id="activity" class="searchbox" placeholder="What are you looking for?">
-  <select id="radius">
-    <option value="402.336" class="checkbox searchbox active">Within .25 miles</options>
-    <option value="804.672" class="checkbox searchbox active">Within .5 miles</options>
-    <option value="1609.34" class="checkbox searchbox active">Within 1 mile</options>
-    <option value="8046.72" class="checkbox searchbox active">Within 5 miles</options>
-    <option value="16093.4" class="checkbox searchbox active">Within 10 miles</options>
 
+  <div class="row">
+    <input id="activity" class="searchbox" placeholder="What are you looking for?">
+  </div>
 
-  </select>
-  <select id="mode">
-    <option value="DRIVING" class="checkbox searchbox active">Driving</options>
-    <option value="WALKING" class="checkbox searchbox active">Walking</options>
-    <option value="TRANSIT" class="checkbox searchbox active">Public Transportation</options>
-  </select>
-  <input id="address_submit" class="button small-12 columns" type="button" value="Get Route">
+  <div class="row">
+    <select id="radius">
+      <option value="402.336" class="small-10 small-centered coulmns searchbox checkbox active">Within .25 miles</options>
+      <option value="804.672" class="small-10 small-centered coulmns searchbox checkbox active">Within .5 miles</options>
+      <option value="1609.34" class="small-10 small-centered coulmns searchbox checkbox active">Within 1 mile</options>
+      <option value="8046.72" class="small-10 small-centered coulmns searchbox checkbox active">Within 5 miles</options>
+      <option value="16093.4" class="small-10 small-centered coulmns searchbox checkbox active">Within 10 miles</options>
+    </select>
+  </div>
+
+  <div class="row">
+    <select id="mode">
+      <option value="DRIVING" class="small-10 small-centered coulmns searchbox checkbox active">Driving</options>
+      <option value="WALKING" class="small-10 small-centered coulmns searchbox checkbox active">Walking</options>
+      <option value="TRANSIT" class="small-10 small-centered coulmns searchbox checkbox active">Public Transportation</options>
+    </select>
+  </div>
+
+  <input id="address_submit" class="button small-12 columns" type="button" value="Go!">
 </div>
 
 <div id='list-view'></div> 

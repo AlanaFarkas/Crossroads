@@ -159,5 +159,12 @@
     $('.address-menu').hide();
     $('.search').on('click', function(event){
         $('.address-menu').slideToggle(500);
+        $(this).css('background-color', '#12a643')
       })
+
+    $('#address_submit').on('click', function(event){
+      $('.address-menu').slideToggle(500);
+      $(this).css('background-color', '#12a643')
+    });
+
   });
