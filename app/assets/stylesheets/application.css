@@ -101,7 +101,6 @@ body {
 #map {
 	width: 100%;
 	height: 80%;
-
 }
 
 #list-view {
@@ -160,6 +159,10 @@ margin-bottom: 0;
 	color: #000;
 }
 
+.menu li>a {
+	color: #12a643;
+}
+
 .title-bar-title {
 	margin-top: -8px;
 	float: right;
@@ -191,9 +194,6 @@ a {
 	color: #fff;
 }
 
-li {
-	color: #12a643;
-}
 
 .place-link {
 	color: #0000EE;
