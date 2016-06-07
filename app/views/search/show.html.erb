@@ -174,18 +174,10 @@
 // Locates current location on load================================================
   $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(initialize); //Gets Current Position on the loading of the map
-
     $('.address-menu').hide();
-
     $('.search').on('click', function(event){
         $('.address-menu').slideToggle(500);
       })
-
-    $(".checkbox").on("click", function(){
-      $(".checkbox").removeClass("active");
-      $(this).addClass("active");
-      transitType = $(this).value
-    });
   });
 
 </script>
