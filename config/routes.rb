@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root to: "home#index"
 
-  resources :addresses, except: [:show]
+  resources :addresses, except: [:index, :show]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: [:show, :edit, :update]
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post "/search"  => "search#create"
   get "/search/show"   => "search#show", as: :search_show
   # get '/users/favorites' => 'users#favorites'
-  
+
   devise_scope :user do
 
     get "/login" => 'devise/sessions#new'
