@@ -162,6 +162,7 @@
     $('#list-view').hide();
     $('.list').on('click', function(){
       $('#list-view').slideToggle(500);
+      // $('#map').hide();
     })
 
     $('.address-menu').hide();
