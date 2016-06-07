@@ -29,21 +29,36 @@
   var midpoint;
 
 // Assigns an info window to every marker==========================================
-
   function handleSearchResults(results, status){
+
+    var markers = []
     for(var i = 0; i < results.length; i++) {
-      var marker1 = new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: results[i].geometry.location,
         map: map,
       });
+      markers.push(marker)
+      contentString = '<p><a href=http://www.'+ results[i].name +'.com>' + results[i].name + '</a></p>' +
+                      '<p>' + results[i].vicinity+ '</p>' +
+                      '<p>' + results[i].rating + '</p>'
+      
       var infoWindow = new google.maps.InfoWindow({
-        content: JSON.stringify(results[i].rating)
+        content: contentString
       });
-      google.maps.event.addListener(marker1, 'click', function(){
-        infoWindow.open(map, this)
-      })
+      google.maps.event.addListener(marker, 'click', (function(marker, i){
+        infoWindow.open(map, marker);
+
+      })(marker));
     }
   }
+
+          // Allow each marker to have an info window    
+        // google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        //     return function() {
+        //         infoWindow.setContent(infoWindowContent[i][0]);
+        //         infoWindow.open(map, marker);
+        //     }
+        // })(marker, i));
 
 
 
@@ -120,7 +135,7 @@
 
   function performSearch(){
     var request = {
-      radius: radius/2,
+      radius: radius / 2,
       location: midpoint,
       name: (document.getElementById("activity").value)
     }
@@ -128,7 +143,7 @@
   }
         //***this is for the search of activity. Uncomment to have search markers show on map***
     activity = new google.maps.places.PlacesService(map);
-    google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch)
+    google.maps.event.addListenerOnce(map, 'center_changed', performSearch)
         }
 
       });
