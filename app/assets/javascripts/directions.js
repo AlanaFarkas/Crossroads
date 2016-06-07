@@ -11,8 +11,11 @@
     var list = document.getElementById("list-view"); 
     for(var i = 0; i < placesList.length; i++) {
       eachPlace = '<p class="list-item">' + placesList[i] + '</p>' 
-      $('#list-view').append(eachPlace);   
-      // list.innerHTML = list.append(eachPlace);
+      $('#list-view').hide();
+      $('#list-view').append(eachPlace);
+      $('.list').on('click', function(){
+      $('#list-view').toggle();
+      })
     }
   }
 // Assigns an info window to every marker==========================================
@@ -161,7 +164,6 @@
         $('.address-menu').slideToggle(500);
         $(this).css('background-color', '#12a643')
       })
-
     $('#address_submit').on('click', function(event){
       $('.address-menu').slideToggle(500);
       $(this).css('background-color', '#12a643')
