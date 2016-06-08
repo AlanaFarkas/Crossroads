@@ -215,6 +215,10 @@ z-index: 1;
 	width: 380px;
 }
 
+#activity {
+	margin-bottom: -1px;
+}
+
 #radius {
 	margin-bottom: -1px;
 }
