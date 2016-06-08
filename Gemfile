@@ -18,7 +18,6 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'json'
-gem 'lodash-rails'
 gem 'puma'
 gem 'faker'
 # Use jquery as the JavaScript library
