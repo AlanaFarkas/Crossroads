@@ -9,7 +9,6 @@
   var placesList = [];
 
   function populateListView(placesList) {
-    var list = document.getElementById("list-view");
     for(var i = 0; i < placesList.length; i++) {
       eachPlace = '<p class="list-item">' + placesList[i] + '</p>'
       $('#list-view').append(eachPlace);
@@ -17,19 +16,27 @@
   }
 // Assigns an info window to every marker==========================================
   function handleSearchResults(results, status){
+    var hours;
     var grade;
-    for(var i = 0; i < results.length; i++) {
+
+    for(var i = 0; i < results.length; i++) {      
       if (results[i].rating) {
         grade = '<p>Rating: ' + results[i].rating +'/5</p>'
       } else {
         grade = '<p>No Rating</p>'
       }
+
+      if (results[i].opening_hours.open_now) {
+        hours = '<p>Open Now</p>'
+      } else {
+        hours = '<p>Currently Closed</p>'
+        } 
       var marker = new google.maps.Marker({
         position: results[i].geometry.location,
         map: map,
       });
       contentString = '<p><a class="place-link" href="www.google.com">' + results[i].name + '</a></p>' +
-                      '<p>' + results[i].vicinity + '</p>' + grade
+                      '<p>' + results[i].vicinity + '</p>' + grade + hours
 
       placesList.push(contentString)
       addInfoWindowListener(marker, contentString);
