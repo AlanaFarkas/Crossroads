@@ -2,7 +2,7 @@
 
 Crossroads is a simple to use web app designed to find the midpoint between two distinct starting locations, allowing users to select a search radius around the midpoint, and a desired activity (like dining, or seeing a movie) within the search radius. Using Ruby on Rails, Javascript, and the Google Maps API, developers [Alana Farkas](https://github.com/AlanaFarkas), [Leo Kukhar](https://github.com/leokukhar), [Bobby Reith](https://github.com/robertreith), and [Ayaz Uddin](https://github.com/Ayaz2589) created the app so that two friends can quickly find the most convenient spot to meet so that the fun can happen faster. Enjoy!
 
-**Coming Soon**
+##**Coming Soon**
 1. Calculating a midpoint between 3 or more users
 2. Users can add 'favorite' places to their account
 3. Integrating Google Places API for the most up-to-date establishment information  
