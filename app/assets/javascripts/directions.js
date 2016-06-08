@@ -36,7 +36,7 @@
         position: results[i].geometry.location,
         map: map,
       });
-      contentString = '<div class="info-text"><a class="place-link" href="www.google.com">' + results[i].name + '<br/>'  + '</a>' + results[i].vicinity + '<br/>' + grade + '<br/>' + hours + '</div>'
+      contentString = '<div class="info-text"><a class="place-link" href="www.google.com">' + results[i].name + '<br/>'  + '</a>' + results[i].vicinity + '<br/>' + grade + '<br/>' + hours + '<br/>' + '<a class="favorites-link" href="#">' + 'Add to Favorites' + '</a>' + '</div>'
 
       placesList.push(contentString)
       addInfoWindowListener(marker, contentString);
