@@ -1,25 +1,19 @@
 <div class='container'>
 
-<body background="/images/cover.jpg">
 
 <div class="logo">
-	<%= image_tag('compass-logo.png') %>
+	<%= image_tag 'compass-logo.jpg', size: '200x200' %>
 </div>
 	<h1 id='home-title'>Crossroads</h1>
-
+	
+<div class="session">
 	<% if !signed_in? %>
 	<div class="row">
 		<div class="home-button button small-8 small-centered columns">
-			<%= link_to 'Login', login_path %>
+			<%= link_to 'Login', login_path, placeholder: %>
 		</div>
 	</div>
 	<% end %>
-
-	<div class='row'>
-	  <div class="home-button button small-8 small-centered columns">
-	  <%= link_to 'New Search', search_show_path %>
-	  </div>
-	</div>
 
 	<% if !signed_in? %>
 	<div class='row'>
@@ -28,6 +22,13 @@
 	  </div>
 	</div>
 	<% end %>
+</div>
+
+	<div class='row'>
+	  <div class="home-button button small-8 small-centered columns">
+	  <%= link_to 'New Search', search_show_path %>
+	  </div>
+	</div>
 
 </div>
 
