@@ -7,28 +7,28 @@
 	<h1 id='home-title'>Crossroads</h1>
 
 <div class="session">
+	<div class='row'>
+	  <div class="home-button button small-8 small-centered columns">
+	  	<%= link_to 'New Search', search_show_path, id: "new-search"%>
+	  </div>
+	</div>
+
 	<% if !signed_in? %>
-	<div class="row">
-		<div class="home-button button small-8 small-centered columns">
-			<%= link_to 'Login', login_path, id: "login"%>
+		<div class="row">
+			<div class="home-button button small-8 small-centered columns">
+				<%= link_to 'Login', login_path, id: "login"%>
+			</div>
 		</div>
-	</div>
 	<% end %>
 
 	<% if !signed_in? %>
-	<div class='row'>
-	  <div class="home-button button small-8 small-centered columns">
-    <%= link_to "Create an Account", new_user_registration_path, id: "register" %>
-	  </div>
-	</div>
+		<div class='row'>
+		  <div class="home-button button small-8 small-centered columns">
+		  	<%= link_to "Create an Account", new_user_registration_path, id: "register" %>
+		  </div>
+		</div>
 	<% end %>
-</div>
 
-	<div class='row'>
-	  <div class="home-button button small-8 small-centered columns">
-	  <%= link_to 'New Search', search_show_path, id: "new-search"%>
-	  </div>
-	</div>
 
 </div>
 
