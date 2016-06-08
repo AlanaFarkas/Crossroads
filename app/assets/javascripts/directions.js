@@ -17,14 +17,20 @@
   }
 // Assigns an info window to every marker==========================================
   function handleSearchResults(results, status){
+    var grade;
     for(var i = 0; i < results.length; i++) {
+      if (results[i].rating) {
+        grade = '<p>Rating: ' + results[i].rating +'/5</p>' 
+      } else {
+        grade = '<p>No Rating</p>'
+      }
       var marker = new google.maps.Marker({
         position: results[i].geometry.location,
         map: map,
       });
       contentString = '<p><a class="place-link" href="www.google.com">' + results[i].name + '</a></p>' +
-                      '<p>' + results[i].vicinity+ '</p>' +
-                      '<p>' + results[i].rating + '</p>'
+                      '<p>' + results[i].vicinity + '</p>' + grade
+                      
       placesList.push(contentString)
       addInfoWindowListener(marker, contentString);
     }
@@ -93,11 +99,11 @@
           });
 
           var radialBounds = new google.maps.Circle({
-            strokeColor: '#FF0000',
+            strokeColor: '#12a643',
             strokeOpacity: 0.8,
             strokeWeight: 2,
             fillColor: '#66ff99',
-            fillOpacity: 0.30,
+            fillOpacity: 0.35,
             map: map,
             center: midpoint,
             radius: radius
@@ -106,7 +112,7 @@
 
   function performSearch(){
     var request = {
-      radius: radius / 2,
+      radius: radius / 1.5,
       location: midpoint,
       name: (document.getElementById("activity").value)
     }
@@ -158,8 +164,10 @@
     navigator.geolocation.getCurrentPosition(initialize); //Gets Current Position on the loading of the map
     $('#list-view').hide();
     $('.list').on('click', function(){
+      $('#go').hide();
       $('#list-view').slideToggle(500);
       $('#map').slideToggle(500);
+
     })
 
     $('.address-menu').hide();

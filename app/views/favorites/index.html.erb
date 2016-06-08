@@ -6,7 +6,7 @@
 
 <div id='favorite'>
 <div class='row'>
-<div class='small-8 columns'><a href='<%=estab.establishment.website%>'><%= estab.establishment.name %></a></div>
+<div class='small-8 columns'><a class="favorites" href='#'><%= estab.establishment.name %></a></div>
 </div>
 <div class='row'><div class='small-8 columns'>Phone: <%= estab.establishment.phone_number %>
 <%= estab.establishment.address_1 %>, <%= estab.establishment.address_2 %></div>
@@ -14,7 +14,7 @@
 <div class='row'><div class='small-8 columns'><%= estab.establishment.city %>, <%= estab.establishment.state %></div>
 
 <!-- <button class="button alert small-3 columns">Remove</button> -->
-<button class="button alert small-3 columns"><%= link_to "Remove", favorite_path(estab), method: :delete, data: {confirm: "This can not be undone"} %></button>
+<button class="button alert small-3 columns"><%= link_to "Remove", favorite_path(estab), method: :delete %></button>
 </div>
 </div>
 
