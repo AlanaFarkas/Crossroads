@@ -138,6 +138,10 @@ body {
 	border-color: #12A643;
 }
 
+.button.remove a {
+	color: white;
+}
+
 g
 li {
 	list-style-type: none;
