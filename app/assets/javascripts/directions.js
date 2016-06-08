@@ -100,9 +100,14 @@
           var lng = path[middleOfArray].lng();
           midpoint = {lat: lat, lng: lng};
 
+          var image = {url: "/imgs/midpoint-marker.png",
+                       scaledSize: new google.maps.Size(38, 60)
+                      }
+
           var midpointMarker = new google.maps.Marker({
             position: midpoint,
-            map: map
+            map: map,
+            icon: image
           });
 
           var radialBounds = new google.maps.Circle({
