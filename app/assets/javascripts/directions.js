@@ -99,7 +99,7 @@
           var midpointMarker = new google.maps.Marker({
             position: midpoint,
             map: map,
-            icon: "/imgs/compass-marker.png"
+            icon: "/imgs/marker.jpg"
           });
 
           var radialBounds = new google.maps.Circle({
