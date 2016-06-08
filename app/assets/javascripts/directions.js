@@ -9,10 +9,10 @@
   var placesList = [];
 
   function populateListView(placesList) {
-    var list = document.getElementById("list-view"); 
+    var list = document.getElementById("list-view");
     for(var i = 0; i < placesList.length; i++) {
-      eachPlace = '<p class="list-item">' + placesList[i] + '</p>' 
-      $('#list-view').append(eachPlace);      
+      eachPlace = '<p class="list-item">' + placesList[i] + '</p>'
+      $('#list-view').append(eachPlace);
     }
   }
 // Assigns an info window to every marker==========================================
@@ -20,7 +20,7 @@
     var grade;
     for(var i = 0; i < results.length; i++) {
       if (results[i].rating) {
-        grade = '<p>Rating: ' + results[i].rating +'/5</p>' 
+        grade = '<p>Rating: ' + results[i].rating +'/5</p>'
       } else {
         grade = '<p>No Rating</p>'
       }
@@ -30,7 +30,7 @@
       });
       contentString = '<p><a class="place-link" href="www.google.com">' + results[i].name + '</a></p>' +
                       '<p>' + results[i].vicinity + '</p>' + grade
-                      
+
       placesList.push(contentString)
       addInfoWindowListener(marker, contentString);
     }
@@ -117,6 +117,7 @@
       name: (document.getElementById("activity").value)
     }
     activity.nearbySearch(request, handleSearchResults);
+    $('input').val('');
   }
         //***this is for the search of activity. Uncomment to have search markers show on map***
     activity = new google.maps.places.PlacesService(map);
@@ -162,22 +163,19 @@
 // Locates current location on load================================================
   $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(initialize); //Gets Current Position on the loading of the map
+    $('.address-menu').hide();
     $('#list-view').hide();
+
     $('.list').on('click', function(){
       $('#go').hide();
       $('#list-view').slideToggle(500);
       $('#map').slideToggle(500);
-
     })
-
-    $('.address-menu').hide();
     $('.search').on('click', function(event){
         $('.address-menu').slideToggle(500);
-        $(this).css('background-color', '#12a643')
       })
     $('#address_submit').on('click', function(event){
       $('.address-menu').slideToggle(500);
-      $(this).css('background-color', '#12a643')
     });
 
   });
