@@ -13,8 +13,7 @@
 </div>
 <div class='row'><div class='small-8 columns'><%= estab.establishment.city %>, <%= estab.establishment.state %></div>
 
-<!-- <button class="button alert small-3 columns">Remove</button> -->
-<button class="button alert small-3 columns"><%= link_to "Remove", favorite_path(estab), method: :delete %></button>
+<button class="button remove small-3 columns"><%= link_to "Remove", favorite_path(estab), method: :delete %></button>
 </div>
 </div>
 
