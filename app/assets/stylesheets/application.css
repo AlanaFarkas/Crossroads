@@ -26,9 +26,6 @@ body {
 	font-weight: 300;
 }
 
-/*#top_space{
-	margin-top: 6%;
-}*/
 
 .cover {
 	z-index: -1;
@@ -183,7 +180,7 @@ height: 45px;
 line-height: 45px;
 position: relative;
 background: #12a643;
-margin-bottom: 0; 
+margin-bottom: 0;
 z-index: 1;
 }
 
@@ -246,21 +243,9 @@ a {
 
 #address_submit {
 	margin-bottom: -18px;
-	
+
 }
 
 .session {
 	margin-top: -30px;
-}
-
-.session:after {
-  display: block;
-  height: 1px;
-  background-color: #fff;
-  content: " ";
-  width: 350px;
-  margin: 0 auto;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  background-color:#12a643;
 }
