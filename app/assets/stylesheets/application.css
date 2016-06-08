@@ -85,6 +85,20 @@ body {
  	margin-top: -20%;
  }
 
+ #flash_alert {
+ 	text-align: center;
+ 	color: red;
+ }
+
+ #error_explanation h2 {
+ 	display: none;
+ }
+
+ ul {
+ 	list-style: none;
+ 	color: red;
+ }
+
  h2 {
  	font-size: 30px;
  	text-align: center;
