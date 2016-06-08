@@ -131,6 +131,7 @@ body {
 #list-view {
 	position: relative;
 	z-index: 1;
+	min-height: 576px;
 }
 
 .list-item {
