@@ -26,9 +26,9 @@ body {
 	font-weight: 300;
 }
 
-#top_space{
+/*#top_space{
 	margin-top: 6%;
-}
+}*/
 
 .cover {
 	z-index: -1;
@@ -40,8 +40,9 @@ body {
 }
 
 .logo {
-	margin-top: -120px;
-	margin-bottom: -20px;
+	margin-left: 25%;
+	margin-top: -80px;
+	margin-bottom: 10px;
 }
 
 .transportation {

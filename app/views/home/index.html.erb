@@ -2,7 +2,7 @@
 
 
 <div class="logo">
-	<%= image_tag('compass-logo.jpg') %>
+	<%= image_tag 'compass-logo.jpg', size: '200x200' %>
 </div>
 	<h1 id='home-title'>Crossroads</h1>
 	
@@ -10,7 +10,7 @@
 	<% if !signed_in? %>
 	<div class="row">
 		<div class="home-button button small-8 small-centered columns">
-			<%= link_to 'Login', login_path %>
+			<%= link_to 'Login', login_path, placeholder: %>
 		</div>
 	</div>
 	<% end %>
