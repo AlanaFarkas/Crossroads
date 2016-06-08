@@ -22,22 +22,21 @@
 
     for(var i = 0; i < results.length; i++) {      
       if (results[i].rating) {
-        grade = '<p>Rating: ' + results[i].rating +'/5</p>'
+        grade = 'Rating: ' + results[i].rating +'/5'
       } else {
-        grade = '<p>No Rating</p>'
+        grade = 'No Rating'
       }
 
       if (results[i].opening_hours.open_now) {
-        hours = '<p>Open Now</p>'
+        hours = 'Open Now'
       } else {
-        hours = '<p>Currently Closed</p>'
+        hours = 'Currently Closed'
         } 
       var marker = new google.maps.Marker({
         position: results[i].geometry.location,
         map: map,
       });
-      contentString = '<p><a class="place-link" href="www.google.com">' + results[i].name + '</a></p>' +
-                      '<p>' + results[i].vicinity + '</p>' + grade + hours
+      contentString = '<div class="info-text"><a class="place-link" href="www.google.com">' + results[i].name + '<br/>'  + '</a>' + results[i].vicinity + '<br/>' + grade + '<br/>' + hours + '</div>'
 
       placesList.push(contentString)
       addInfoWindowListener(marker, contentString);
@@ -50,7 +49,6 @@
       content: contentString
     });
     marker.addListener('click', function(){
-      // infoWindow.open(map, this);
       if(selectedInfoWindow != null && selectedInfoWindow.getMap != null) {
         selectedInfoWindow.close();
         if (selectedInfoWindow == infoWindow) {
