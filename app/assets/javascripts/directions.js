@@ -7,6 +7,7 @@
   var midpoint;
   var transitType;
   var placesList = [];
+  var selectedInfoWindow
 
   function populateListView(placesList) {
     for(var i = 0; i < placesList.length; i++) {
@@ -49,7 +50,16 @@
       content: contentString
     });
     marker.addListener('click', function(){
-      infoWindow.open(map, marker);
+      // infoWindow.open(map, this);
+      if(selectedInfoWindow != null && selectedInfoWindow.getMap != null) {
+        selectedInfoWindow.close();
+        if (selectedInfoWindow == infoWindow) {
+          selectedInfoWindow = null
+          return;
+        }
+      }
+      selectedInfoWindow = infoWindow;
+      selectedInfoWindow.open(map, marker);
     });
   }
 //Runs all this functions during on initialization=================================
@@ -159,11 +169,9 @@
     //   }
     // }
   }
-
     var onChangeHandler = function() { //Handles the changes of the address1 and address2 fields
       calculateAndDisplayRoute(directionsService, directionsDisplay);
         };
-
     document.getElementById('address_submit').addEventListener('click', onChangeHandler); //Sets button to be able to fire the function
   }
 
