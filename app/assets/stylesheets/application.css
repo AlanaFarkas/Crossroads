@@ -109,9 +109,11 @@ body {
 }
 
 .list-item {
-	border-top: .75px solid black;
+	border-bottom: .75px solid black;
 	padding: 5px;
+	margin-top: -15px;
 	border-color: #12A643;
+	z-index: -1;
 }
 .address-menu {
 	z-index: 1;
@@ -152,6 +154,11 @@ line-height: 45px;
 position: relative;
 background: #12a643;
 margin-bottom: 0; 
+z-index: 1;
+}
+
+.dropdown {
+	z-index: 1;
 }
 
 .menu-icon {
@@ -197,4 +204,12 @@ a {
 
 .place-link {
 	color: #0000EE;
+}
+
+.favorites {
+	color: #0000EE;
+}
+
+#address_submit {
+	margin-bottom: 2px;
 }
