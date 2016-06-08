@@ -26,6 +26,10 @@ body {
 	font-weight: 300;
 }
 
+/*#top_space{
+	margin-top: 6%;
+}*/
+
 .cover {
 	z-index: -1;
 	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/cover.jpg');
@@ -120,8 +124,8 @@ body {
 }
 
 #map {
-	width: 100%;
-	height: 80%;
+	width: 375px;
+	height: 580px;
 }
 
 #list-view {
@@ -179,7 +183,7 @@ height: 45px;
 line-height: 45px;
 position: relative;
 background: #12a643;
-margin-bottom: 0;
+margin-bottom: 0; 
 z-index: 1;
 }
 
@@ -230,23 +234,6 @@ z-index: 1;
 a {
 	color: #fff;
 }
-#login {
-	position: relative;
-	padding-left: 45%;
-	padding-right: 45%;
-}
-
-#register {
-	position: relative;
-	padding-left: 24%;
-	padding-right: 24%;
-}
-
-#new-search {
-	position: relative;
-	padding-left: 33%;
-	padding-right: 33%;
-}
 
 
 .place-link {
@@ -259,6 +246,7 @@ a {
 
 #address_submit {
 	margin-bottom: 2px;
+	
 }
 
 .session {
