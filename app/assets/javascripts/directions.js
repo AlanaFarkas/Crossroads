@@ -17,14 +17,20 @@
   }
 // Assigns an info window to every marker==========================================
   function handleSearchResults(results, status){
+    var grade;
     for(var i = 0; i < results.length; i++) {
+      if (results[i].rating) {
+        grade = '<p>Rating: ' + results[i].rating +'/5</p>' 
+      } else {
+        grade = '<p>No Rating</p>'
+      }
       var marker = new google.maps.Marker({
         position: results[i].geometry.location,
         map: map,
       });
       contentString = '<p><a class="place-link" href="www.google.com">' + results[i].name + '</a></p>' +
-                      '<p>' + results[i].vicinity+ '</p>' +
-                      '<p> Rating: ' + results[i].rating + '/5</p>'
+                      '<p>' + results[i].vicinity + '</p>' + grade
+                      
       placesList.push(contentString)
       addInfoWindowListener(marker, contentString);
     }
@@ -158,8 +164,10 @@
     navigator.geolocation.getCurrentPosition(initialize); //Gets Current Position on the loading of the map
     $('#list-view').hide();
     $('.list').on('click', function(){
+      $('#go').hide();
       $('#list-view').slideToggle(500);
       $('#map').slideToggle(500);
+
     })
 
     $('.address-menu').hide();
