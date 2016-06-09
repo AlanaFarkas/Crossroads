@@ -1,7 +1,9 @@
 
 <div class="container">
 
-<h3>Favorite Places</h3>
+<div class="row">
+<h2 class='favorites-index small-8 small-centered columns'>Favorite Places</h2>
+</div>
 
 <% @user.favorites.each do |estab| %>
 
@@ -14,7 +16,7 @@
 </div>
 <div class='row'><div class='small-8 columns'><%= estab.establishment.city %>, <%= estab.establishment.state %></div>
 
-<button class="button remove small-3 columns"><%= link_to "Remove", favorite_path(estab), method: :delete %></button>
+<button class="button remove small-4 columns"><%= link_to "Remove", favorite_path(estab), method: :delete %></button>
 </div>
 </div>
 

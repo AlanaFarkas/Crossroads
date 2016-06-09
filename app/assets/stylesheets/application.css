@@ -200,6 +200,11 @@ z-index: 1;
 	color: #12a643;
 }
 
+.favorites-index {
+	margin-top: -50px;
+	margin-bottom: 30px;
+}
+
 .title-bar-title {
 	margin-top: -8px;
 	float: right;
