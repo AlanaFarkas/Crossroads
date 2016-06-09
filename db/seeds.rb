@@ -7,7 +7,7 @@
 # end
 
 # 35.times do
-# 	Address.create!(address_1: Faker::Address.street_address,
+#   Address.create!(address_1: Faker::Address.street_address,
 #     address_2: Faker::Address.secondary_address,
 #     city: Faker::Address.city,
 #     state: Faker::Address.state,
@@ -28,28 +28,23 @@
 # end
 
 # 100.times do
-# 	fav = Favorite.create(user: User.all.sample,
-# 		establishment: Establishment.all.sample)
+#   fav = Favorite.create(user: User.all.sample,
+#       establishment: Establishment.all.sample)
 # end
 
-bobby = User.create!(first_name: "Bobby", last_name: "Reith", email: "Bobby.Reith@gmail.com", phone_number: "123-456-7890", password: "Password123")
+ayaz = User.create!(first_name: "Ayaz", last_name: "Uddin", email: "Ayaz.Uddin@gmail.com", phone_number: "123-456-7890", password: "Password123")
 
-establishment = Establishment.create!(name: "Leo's Lemonade Stand", address_1: "123 Broadway", city: "New York", state: "NY", zip: "12345")
+establishment = Establishment.create!(name: "Smashburger", address_1: "10 West 33rd Street", city: "New York", state: "NY", zip: "10001")
 
-establishment1 = Establishment.create!(name: "Ayaz's Apple Orchard", address_1: "123 Main Street", city: "New York", state: "NY", zip: "12345")
+establishment1 = Establishment.create!(name: "Mendy's", address_1: "61 East 34th Street", city: "New York", state: "NY", zip: "10016")
 
-establishment2 = Establishment.create!(name: "Alana's Elixir Palace", address_1: "123 5th Avenue", city: "New York", state: "NY", zip: "12345")
+establishment2 = Establishment.create!(name: "Piccolo Cafe", address_1: "238 Madison Avenue", city: "New York", state: "NY", zip: "10016")
 
 favorite = Favorite.create!(user_id: 1, establishment_id: 1)
 favorite1 = Favorite.create!(user_id: 1, establishment_id: 2)
 favorite2 = Favorite.create!(user_id: 1, establishment_id: 3)
 
-
-
-
-
-bobby.favorites << favorite
-bobby.favorites << favorite1
-bobby.favorites << favorite2
-
+ayaz.favorites << favorite
+ayaz.favorites << favorite1
+ayaz.favorites << favorite2
 
