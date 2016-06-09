@@ -32,7 +32,7 @@ function handleSearchResults(results, status){
       map: map,
     });
 // Assigns information about the marker into a variable for future use
-    contentString = '<div class="info-text"><a class="place-link" href="www.google.com">' + results[i].name + '<br/>'  + '</a>' + results[i].vicinity + '<br/>' + grade + '<br/>' + hours + '</div>'
+    contentString = contentString = '<div class="info-text"><a class="place-link" href="www.google.com">' + results[i].name + '<br/>'  + '</a>' + results[i].vicinity + '<br/>' + grade + '<br/>' + hours + '<br/>' + '<a class="favorites-link" href="#">' + 'Add to Favorites' + '</a>' + '</div>'
 // Pushes the content of the marker into the list feature and assigns an infowindow to it
     placesList.push(contentString)
     addInfoWindowListener(marker, contentString);
