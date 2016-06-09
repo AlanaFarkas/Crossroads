@@ -165,7 +165,7 @@ li {
 	padding: 0;
 	margin: 0;
 	font-weight: bolder;
-	font-size: 1.25em;
+	color: white;
 }
 
 .map-button {
@@ -210,6 +210,7 @@ z-index: 1;
 	background-color: #12a643;
 	font-weight: bolder;
 	font-size: 1.25em;
+	color: white;
 }
 
 .picture {
