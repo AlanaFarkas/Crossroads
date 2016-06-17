@@ -5,8 +5,8 @@ Crossroads is a simple to use web app designed to find the midpoint between two 
 Note that our app works across all browsers, but looks best in mobile view.
 
 ##**Coming Soon**
-1. Calculating a midpoint between 3 or more users
-2. Users can add 'favorite' places to their account
+1. Calculating a midpoint between 2 users
+2. Users can also sign in with Google Authentication. ** We will be adding new feature in the future **
 3. Integrating Google Places API for the most up-to-date establishment information 
 
 ###### &copy; 2016 Alana Farkas, Leo Kukhar, Robert Reith, Ayaz Uddin
