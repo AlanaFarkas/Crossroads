@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="row">
-    <div class="medium-4 medium-centered columns">
+    <div class="medium-4 medium-centered columns profile-picture">
     <% if @user.profile_picture != nil %>
       <img class="picture" src=<%= @user.profile_picture %> height='150' width ='150'>
     <% else %>
@@ -11,8 +11,7 @@
   </div>
 
 <div class="row">
-<h2><%= @user.first_name %>
-<%= @user.last_name %></h2>
+<h2><%= @user.first_name %> <%= @user.last_name %></h2>
 <p class="email">Email: <%= @user.email %></p>
 </div>
 
@@ -21,29 +20,29 @@
   <li>
     <ul class="menu">
     <div class="row">
-      <p class="small-4 small-centered columns">Home</p>
+      <p class="small-12 small-centered large-4 large-centered columns address-title-color">Home</p>
       <% @addresses.each do |address| %>
         <% if address.address_type == 'Home' %>
         <ul>
-      		<li class="small-12 columns"><%= address.full_address %></li>
+      		<li class="small-12 large-4 large-centered columns address-color"><%= address.full_address %></li>
         </ul>
         <% end %>
       <% end %>
       </div>
       <br>
       <div class="row">
-      <p class="small-4 small-centered columns">Work</p>
+      <p class="small-12 small-centered large-4 large-centered columns address-title-color">Work</p>
       <% @addresses.each do |address| %>
         <% if address.address_type == 'Work' %>        
         <ul>
-          <li class="small-12 columns"><%= address.full_address %></li>
+          <li class="small-12 small-centered large-4 large-centered columns address-color"><%= address.full_address %></li>
         </ul>
         <% end %>
       <% end %>
       </div>
       <br>
 
-      <li><a href='#'>Edit Addresses</a>
+      <li class="small-12 small-centered large-7 large-centered columns" id="edit-address"><a href='#'>Edit Addresses</a>
     </ul>
   </li>
 <!-- </ul> -->
