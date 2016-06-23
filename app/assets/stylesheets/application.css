@@ -82,7 +82,7 @@ body {
  }
 
  .new_user {
- 	margin-top: -20%;
+ 	margin-top: -50px;
  }
 
  #flash_alert {
@@ -290,9 +290,5 @@ a {
 }
 
 .login-top {
-	padding-bottom: 40px;
-}
-
-.login-bottom {
-	padding-top: 40px;
+	margin-top: 40px;
 }
