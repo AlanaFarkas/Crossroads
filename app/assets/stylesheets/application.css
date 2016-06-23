@@ -283,3 +283,16 @@ a {
 .profile-picture {
 	margin-bottom: -55px;
 }
+
+.google-link {
+	display: block;
+	margin: 0 auto;
+}
+
+.login-top {
+	padding-bottom: 40px;
+}
+
+.login-bottom {
+	padding-top: 40px;
+}

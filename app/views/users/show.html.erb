@@ -41,11 +41,13 @@
       <% end %>
       </div>
       <br>
+      <div class="row">
+        <ul>
+          <li class="small-12 small-centered large-4 large-centered columns" id="edit-address"><a href='#'>Edit Addresses</a>
+          </li>
+        </ul>
+      </div>
 
-      <li class="small-12 small-centered large-7 large-centered columns" id="edit-address"><a href='#'>Edit Addresses</a>
-    </ul>
-  </li>
-<!-- </ul> -->
   <% else %>
   	<%= link_to "Add Address", new_address_path, class: "address2" %>
   <% end %>
