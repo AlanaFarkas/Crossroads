@@ -82,7 +82,7 @@ body {
  }
 
  .new_user {
- 	margin-top: -20%;
+ 	margin-top: -50px;
  }
 
  #flash_alert {
@@ -282,4 +282,13 @@ a {
 
 .profile-picture {
 	margin-bottom: -55px;
+}
+
+.google-link {
+	display: block;
+	margin: 0 auto;
+}
+
+.login-top {
+	margin-top: 40px;
 }
